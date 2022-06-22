@@ -22,15 +22,27 @@ services:
       - 3007:3006
 
   bookservice1:
-    container_name: bookservice1
-    image: bookserver
+    container_name: backendsqlserver1
+    image: backendsqlserver
     ports:
-      - 3008:4000
+      - 3008:5000
   
   bookservice2:
-    container_name: bookservice2
-    image: bookserver
+    container_name: backendsqlserver2
+    image: backendsqlserver
     ports:
-      - 3009:4000
+      - 3009:5000
+
+  mssqlserver:
+    container_name: mssqlserver
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    user: root
+    ports:
+      - 1433:1433
+    volumes:
+      - ./sql:/var/opt/mssql/data
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Bonjour123
 
 
