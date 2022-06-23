@@ -9,29 +9,35 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
 
-  auth1:
-    container_name: auth1
-    image: authentification
+  backendmongoserver1:
+    container_name: backendmongoserver1
+    image: backendmongoserver
     ports:
-      - 3006:3006
+      - 3006:3000
 
-  auth2:
-    container_name: auth2
-    image: authentification
+  backendmongoserver2:
+    container_name: backendmongoserver2
+    image: backendmongoserver
     ports:
-      - 3007:3006
+      - 3007:3000
 
-  bookservice1:
+  backendsqlserver1:
     container_name: backendsqlserver1
     image: backendsqlserver
     ports:
       - 3008:5000
   
-  bookservice2:
+  backendsqlserver2:
     container_name: backendsqlserver2
     image: backendsqlserver
     ports:
       - 3009:5000
+  
+  mongo:
+    container_name: mongo
+    image: mongo:latest
+    ports:
+      - 27017:27017
 
   mssqlserver:
     container_name: mssqlserver
