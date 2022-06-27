@@ -8,7 +8,7 @@ Nous avons deux blocs de serveur défini avec l'attribut "upstream". Le premier 
 
 Le Load-Balancing est réalisé dans ces blocs grâce à la ligne "least_conn". C'est le serveur avec le moins de connexion qui est choisi pour effectuer la requête entrante. 
 
-Deux serveurs sont en fonctionnements pour chaque bloc mais il est possible d'en rajouter si besoin "server <adresse serveur>:<port serveur>"
+Deux serveurs sont en fonctionnements pour chaque bloc mais il est possible d'en rajouter si besoin "server adresse_serveur:port_serveur"
 
 ## Deuxième partie du fichier (ligne 17-58)
 
@@ -25,7 +25,7 @@ Cette configuration se fait dans le fichier docker-compose.yml.
 La configuration permet de lancer tous les dockers en même temps, si nous regardons le fonctionnement d'un service comme par example nginx (ligne 4). 
 - "container_name" : nom du conteneur.
 - "image" : nom de l'image pour créer le conteneur.
-- "ports" : <port de sortie du conteneur>:<port de l'intérieur du docker>
+- "ports" : port_de_sortie_du_conteneur:port_de_l'intérieur_du_docker
 
 
 Ces informations sont présentes pour le service nginx et pour les 4 serveurs mongo et sql. 
